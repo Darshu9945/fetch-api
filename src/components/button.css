@@ -1,0 +1,25 @@
+.button{
+    width:60%;
+    height: 20vh;
+    margin:  2px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(71, 135, 135);
+    border-radius: 12px;
+}
+button{
+    padding: 0.5rem;
+    border-radius: 12px;
+    background-color: blue;
+    color: white;
+}
+.movie{
+    width:60%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(130, 84, 115);
+    border-radius: 12px;
+}

@@ -1,0 +1,21 @@
+.mylist{
+   margin: 1rem;
+   background-color: aliceblue;
+   border-radius: 12px;
+   margin-left: 1rem;
+   padding: 1rem;
+}
+.list{
+    
+    color: black;
+    width: 80%;
+    margin: 10rem;
+    margin: auto;
+    
+}
+.mylist>p{
+    text-align: center;
+    background-color: bisque;
+    padding: 1rem;
+
+}
