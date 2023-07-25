@@ -17,6 +17,9 @@ const Button = () => {
                   if(!response.ok){
                     throw new Error("something went wrong...")
                   }
+                  if (response.ok){
+                    setclearint(true)
+                  }
                   const data= await response.json()
                        setmovies(data.results)
                        
@@ -35,7 +38,7 @@ const Button = () => {
     useEffect(()=>{
       let intervalId;
       console.log(clearint)
-      if (!clearint){
+      if (!clearint || movies.length<0){
         intervalId=  setInterval(()=>{
           fetchmoviedata()
         },  1000)
@@ -47,7 +50,7 @@ const Button = () => {
         }
       };
    
-    },[clearint])
+    },[clearint,fetchmoviedata])
    
   return (
     <React.Fragment>
