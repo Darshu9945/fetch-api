@@ -1,0 +1,36 @@
+.myform{
+    width:55%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+}
+.myform>form{
+    width:60%
+}
+.myform input{
+    width:100%;
+    border-radius: 3px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.23);
+    padding: 0.3rem;
+    margin: 0.3rem;
+}
+.description{
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.23);
+    margin: 0.3rem;
+    padding: 0.3rem;
+}
+.myform label{
+    font-weight: bold;
+    margin: 0.3rem;
+}
+button{
+    text-align: center;
+    float: right;
+    margin: 0.5rem;
+}
