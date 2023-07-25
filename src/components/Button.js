@@ -1,6 +1,7 @@
 import React, { useEffect, useState ,useCallback} from 'react'
 import './button.css'
 import Movielist from './Movielist'
+import Myform from './forms/Myform'
 
 const Button = () => {
     const [movies,setmovies]=useState([])
@@ -8,12 +9,24 @@ const Button = () => {
     const [error,seterror]=useState(null)
     const [clearint,setclearint]=useState(false)
 
+   const  datahandler= (movies)=>{
+    console.log("kb")
+   fetch("https://react-http-471b4-default-rtdb.firebaseio.com/movies.json",{
+      method:"POST",
+      body:JSON.stringify(movies),
+      headers:{
+          'Content-Type':'application/json'
+      }
+  })
+  
+   }
     const fetchmoviedata=async ()=>{
                 setisloding(true)
                 seterror(null)
                 try{
                   
-                  const response= await fetch("https://swapi.dev/api/films/")
+                  const response= await fetch("https://react-http-471b4-default-rtdb.firebaseio.com/movies.json")
+                  console.log(response)
                   if(!response.ok){
                     throw new Error("something went wrong...")
                   }
@@ -21,7 +34,16 @@ const Button = () => {
                     setclearint(true)
                   }
                   const data= await response.json()
-                       setmovies(data.results)
+                  const loadedmovies=[]
+                  for(const key in data){
+                    loadedmovies.push({
+                      title:data[key].title,
+                      description:data[key].desciption,
+                      date:data[key].date
+                    })
+                  }
+                  console.log(loadedmovies)
+                       setmovies(loadedmovies)
                        
                        
                 } catch(error){
@@ -35,25 +57,11 @@ const Button = () => {
           setclearint(true)
         }
 
-    useEffect(()=>{
-      let intervalId;
-      console.log(clearint)
-      if (!clearint || movies.length<0){
-        intervalId=  setInterval(()=>{
-          fetchmoviedata()
-        },  1000)
-      }
-      return () => {
-        if (intervalId) {
-          clearInterval(intervalId);
-          console.log('Interval has been stopped.');
-        }
-      };
-   
-    },[clearint,fetchmoviedata])
+console.log(movies)
    
   return (
     <React.Fragment>
+      <Myform onadddata={datahandler}></Myform>
     <div className='button'>
       <button onClick={fetchmoviedata}>Fetch movies</button>
       <button onClick={errorhandler}>Cancel fetching</button>

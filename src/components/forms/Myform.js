@@ -1,7 +1,7 @@
 import React from 'react'
 import './myform.css'
 import { useState } from 'react'
-const Myform = () => {
+const Myform = (props) => {
 const [title,settitle]=useState('')
 const [desciption,setdesciption]=useState('')
 const [date,setdate]=useState('')
@@ -20,7 +20,7 @@ const submithandler=()=>{
         desciption:desciption,
         date:date
     }
-    console.log(obj)
+    props.onadddata(obj)
 }
 
   return (
