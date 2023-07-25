@@ -6,7 +6,7 @@ const Movielist = (props) => {
     <div className='list'>
       {
         props.item.map((item)=>{
-            return <div className='mylist'>
+            return <div className='mylist' key={item.title}>
                   <p> {item.title}</p>
                   <div>{item.opening_crawl}</div>
                   <p>{item.release_date}</p>

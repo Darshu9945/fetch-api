@@ -17,9 +17,14 @@ button{
 .movie{
     width:60%;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    
     background-color: rgb(130, 84, 115);
     border-radius: 12px;
+    padding: 1rem;
+}
+.movie>p{
+    text-align: center;
+   
+    
 }
